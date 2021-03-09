@@ -31,57 +31,60 @@
 						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2 active" href="">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="passeio.html">Passeio aleatório</a>
+						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="textosecreto.php">Texto secreto</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="">Crowd
-						</a>
+						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="imagemsecreta.php">Imagem secreta</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="">Jogos</a>
+						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="sobre.php">Sobre</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="">Sobre</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="">Contato</a>
+						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="contato.php">Contato</a>
 					</li>
 				</ul>
 			</div>
 		</nav><!-- Fim da barra de navegação-->
 
-		<!-- Conteúdo principal - Login -->
-		<div class="container mt-5">
-			<div class="row">
-				<form class="d-grid gap-2 col-10 col-sm-8 col-md-6 col-lg-4 offset-1 offset-sm-2 offset-md-3 offset-lg-4 shadow-lg" action="login.php" method="post">
-					<h1 class="text-center">Autenticação</h1>
-
-					<div class="input-group">
-						<i class="bi bi-person input-group-text text-danger"></i>
-						<input class="form-control" type="text" name="user" placeholder="Digite seu nome de usuário">
-					</div>
-					<div class="input-group">
-						<i class="bi bi-key input-group-text text-danger"></i>
-						<input class="form-control" type="password" name="password" placeholder="Digite sua senha">
-					</div>
-					<?php
-						if (isset($_GET['login'])){
-							if($_GET['login']=='erro'){
-
-							?>
-							
-							<div class="alert alert-danger">Usuário ou senha incorreto</div>
-							
-							<?php }
-						}
+		<?php
+			session_start();
+			if (isset($_SESSION['autenticado']) && $_SESSION){
+				print_r(('<br><br><br><br><br><br><h1 class="display-4 mt-5 text-center">Olá, ' . ucfirst($_SESSION['user']) . '! Seja bem-vindo ao CabsLabs</h1>'));
+				}else{
 					?>
-					<button class="btn btn-outline-danger" type="submit">Entrar</button>
-					<h5 class="text-center">ou</h5>
-					<button class="btn btn-outline-danger" type="button">Cadastrar</button>		
-				</form>
-			</div>
-		</div><!-- Fim do conteúdo principal - Login -->
+					<!-- Conteúdo principal - Login -->
+					<div class="container mt-5">
+						<div class="row">
+							<form class="d-grid gap-2 col-10 col-sm-8 col-md-6 col-lg-4 offset-1 offset-sm-2 offset-md-3 offset-lg-4 shadow-lg" action="login.php" method="post">
+								<h1 class="text-center">Autenticação</h1>
 
+								<div class="input-group">
+									<i class="bi bi-person input-group-text text-danger"></i>
+									<input class="form-control" type="text" name="user" placeholder="Digite seu nome de usuário">
+								</div>
+								<div class="input-group">
+									<i class="bi bi-key input-group-text text-danger"></i>
+									<input class="form-control" type="password" name="password" placeholder="Digite sua senha">
+								</div>
+								<?php
+									if (isset($_GET['login'])){
+										if($_GET['login']=='erro'){
+
+										?>
+										
+										<div class="alert alert-danger">Usuário ou senha incorreto</div>
+										
+										<?php }
+									}
+								?>
+								<button class="btn btn-outline-danger" type="submit">Entrar</button>
+								<h5 class="text-center">ou</h5>
+								<button class="btn btn-outline-danger" type="button">Cadastrar</button>		
+							</form>
+						</div>
+					</div><!-- Fim do conteúdo principal - Login -->
+				<?php }
+		?>
 
 		<!-- Bootstrap JavaScript -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
