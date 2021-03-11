@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<!-- Requeired meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-		<!-- Bootstrap CSS --> 
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-		<link href="css/estilo.css" rel="stylesheet">
-
-		<!-- icons -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-
-		<title>CabsLabs</title>
+		<?php include_once('head.php');	?>
 	</head>
 	<body>
 		<!-- Cabeçalho com logo -->
@@ -25,7 +14,7 @@
 			<button class="navbar-toggler mx-1 my-2" data-toggle="collapse" data-target="#menu-target">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse justify-content-center" id="menu-target">
+			<div class="collapse navbar-collapse" id="menu-target">
 				<ul class="navbar-nav nav-pills">
 					<li class="nav-item">
 						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="index.php">Home</a>
@@ -44,7 +33,9 @@
 					</li>
 				</ul>
 			</div>
+			<a class="btn btn-danger px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="logoff.php">SAIR</a>
 		</nav><!-- Fim da barra de navegação-->
+		<!-- Imagem secreta -->
 		<?php 
 			session_start();
 			if (isset($_SESSION['autenticado']) && $_SESSION){
@@ -58,7 +49,7 @@
 				<?php
 			}
 
-		?>
+		?><!-- Fim da imagem secreta -->
 
 
 		<!-- Bootstrap JavaScript -->

@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-
+	//pessoas cadastradas
 	$users_and_passwords = array(
 		array('user' => 'luffy', 'password' => 'monkey'),
 		array('user' => 'zoro', 'password' => 'roronoa'),
@@ -10,6 +10,7 @@
 		array('user' => 'orochimaru', 'password' => 'sama'),
 		);
 
+	//verifica se pessoa está cadastrada
 	$_SESSION['autenticado'] = False;
 	foreach ($users_and_passwords as $user_and_password) {
 		if ($user_and_password['user'] == $_POST['user'] and $user_and_password['password'] == $_POST['password']){
@@ -18,22 +19,10 @@
 			break;
 		}
 	}
+	
+	if($_SESSION['autenticado']){
+		header('Location: index.php?login=sucesso');
+	}else{
+		header('Location: index.php?login=erro');
+	}
 ?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-		<?php
-
-		if($_SESSION['autenticado']){
-			header('Location: index.php?login=sucesso');
-		}else{
-			header('Location: index.php?login=erro');
-		}
-
-		?>
-	</body>
-</html>
