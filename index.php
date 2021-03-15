@@ -39,13 +39,13 @@
 		<!-- Conteúdo principal - Login -->
 		<?php
 			session_start();
-			if (isset($_SESSION['autenticado']) && $_SESSION){
+			if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']){
 				print_r(('<br><br><br><br><br><br><h1 class="display-4 mt-5 text-center">Olá, ' . ucfirst($_SESSION['user']) . '! Seja bem-vindo ao CabsLabs</h1>'));
 				}else{
 					?>
 					<div class="container mt-5">
 						<div class="row">
-							<form class="d-grid gap-2 col-10 col-sm-8 col-md-6 col-lg-4 offset-1 offset-sm-2 offset-md-3 offset-lg-4 shadow-lg" action="login.php" method="post">
+							<form class="d-grid gap-2 col-10 col-sm-8 col-md-6 col-lg-4 offset-1 offset-sm-2 offset-md-3 offset-lg-4 p-3 shadow-lg" action="login.php" method="post">
 								<h1 class="text-center">Autenticação</h1>
 								<?php
 									if (isset($_GET['logoff'])){
@@ -82,8 +82,44 @@
 								?>
 								<button class="btn btn-outline-danger" type="submit">Entrar</button>
 								<h5 class="text-center">ou</h5>
-								<button class="btn btn-outline-danger" type="button">Cadastrar</button>		
+
+								<!-- Button trigger modal de cadastro -->
+								<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+								  Cadastrar
+								</button>
+
 							</form>
+
+							<!-- Modal de cadastro-->
+							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="exampleModalLabel">Cadastro</h5>
+							        <button type="button" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							        
+							      	<form>
+							      		<label>Usuário</label>
+							      		<input class="form-control" type="text" name="user-sign-up" placeholder="Escolha seu nome de usuário">
+							      		<label>Senha</label>
+							      		<input class="form-control" type="password" name="password-sign-up" placeholder="Escolha sua senha">
+							      		<label>Digite sua senha novamente</label>
+							      		<input class="form-control" type="password" name="password-again" placeholder="Digite a senha escolhida novamente">
+							      	</form>
+
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							        <button type="button" class="btn btn-danger">Cadastrar</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+
 						</div>
 					</div>
 				<?php }
