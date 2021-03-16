@@ -4,12 +4,12 @@
 		<?php include_once('head.php');	?>
 	</head>
 	<body>
-		<!-- Cabeçalho com logo -->
+		<!-- Header and logo -->
 		<header class="bg-dark p-4">
 			<h2 class="text-light text-center">Cabs<span class="text-danger">Labs</span></h2>
-		</header><!-- Fim do cabeçalho com logo -->
+		</header><!-- End of header and logo -->
 
-		<!--Barra de navegação-->
+		<!--Navigation bar-->
 		<nav class="sticky-top navbar navbar-dark bg-danger navbar-expand-md p-2">
 			<button class="navbar-toggler mx-1 my-2" data-toggle="collapse" data-target="#menu-target">
 				<span class="navbar-toggler-icon"></span>
@@ -35,8 +35,9 @@
 			</div>
 			<a class="btn btn-danger px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="logoff.php">SAIR</a>
 
-		</nav><!-- Fim da barra de navegação-->
-		<!-- Conteúdo principal - Login -->
+		</nav><!--End of navigation bar-->
+
+		<!--Login form -->
 		<?php
 			session_start();
 			if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']){
@@ -83,14 +84,14 @@
 								<button class="btn btn-outline-danger" type="submit">Entrar</button>
 								<h5 class="text-center">ou</h5>
 
-								<!-- Button trigger modal de cadastro -->
+								<!-- Button trigger modal sign up -->
 								<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
 								  Cadastrar
-								</button>
+								</button><!-- End of button trigger modal sign up -->
 
 							</form>
 
-							<!-- Modal de cadastro-->
+							<!-- Modal sign up-->
 							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							  <div class="modal-dialog" role="document">
 							    <div class="modal-content">
@@ -102,13 +103,25 @@
 							      </div>
 							      <div class="modal-body">
 							        
-							      	<form>
-							      		<label>Usuário</label>
-							      		<input class="form-control" type="text" name="user-sign-up" placeholder="Escolha seu nome de usuário">
-							      		<label>Senha</label>
-							      		<input class="form-control" type="password" name="password-sign-up" placeholder="Escolha sua senha">
-							      		<label>Digite sua senha novamente</label>
-							      		<input class="form-control" type="password" name="password-again" placeholder="Digite a senha escolhida novamente">
+							      	<form class="d-grid gap-3">
+							      		<div>
+							      			<label>Usuário</label>
+							      			<input class="form-control" type="text" name="user-sign-up" placeholder="Escolha seu nome de usuário">
+							      		</div>
+
+							      		<div>
+							      			<label>Senha</label>
+							      			<input class="form-control" type="password" name="password-sign-up" placeholder="Escolha sua senha" onkeyup="checkPassword()" id="pc">
+							      			<h6 id="pc-msg" class="p-1"></h6>		      			
+							      		</div>
+
+							      		<div>
+							      			<label>Digite sua senha novamente</label>
+							      			<input class="form-control" type="password" name="password-again" placeholder="Digite a senha escolhida novamente">							      			
+							      		</div>
+
+							      		
+
 							      	</form>
 
 							      </div>
@@ -118,13 +131,18 @@
 							      </div>
 							    </div>
 							  </div>
-							</div>
+							</div><!-- End of modal sign up-->
 
 						</div>
 					</div>
 				<?php }
-		?><!-- Fim do conteúdo principal - Login -->
+		?><!-- End of login form -->
 
+
+
+		<!--Password Checker-->
+		<script type="text/javascript" src="password-checker.js"></script>
+		
 		<!-- Bootstrap JavaScript -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
