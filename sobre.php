@@ -1,45 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
+		<!--Required meta tags, Bootstrap CSS, icons and title-->
 		<?php include_once('head.php');	?>
 	</head>
 	<body>
-		<!-- Cabeçalho com logo -->
-		<header class="bg-dark p-4">
-			<h2 class="text-light text-center">Cabs<span class="text-danger">Labs</span></h2>
-		</header><!-- Fim do cabeçalho com logo -->
+		<!--Header and navigation bar-->
+		<?php include_once('header_and_navbar.php'); ?>
+		<script type="text/javascript">
+			document.getElementById('about').className += " active"
+		</script><!--End of header and navigation bar-->
+			
 
-		<!--Barra de navegação-->
-		<nav class="sticky-top navbar navbar-dark bg-danger navbar-expand-md p-2">
-			<button class="navbar-toggler mx-1 my-2" data-toggle="collapse" data-target="#menu-target">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="menu-target">
-				<ul class="navbar-nav nav-pills">
-					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="index.php">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="textosecreto.php">Texto secreto</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="imagemsecreta.php">Imagem secreta</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2 active" href="">Sobre</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="contato.php">Contato</a>
-					</li>
-				</ul>
-			</div>
-			<a class="btn btn-danger px-1 px-md-3 mt-1 mt-md-0 mx-md-2" href="logoff.php">SAIR</a>
-		</nav><!-- Fim da barra de navegação-->
-			<!-- Sobre -->
-			<article">
-				<h2 class="text-center pt-5">Sobre</h2>
-				<p class="text-center pt-3">Este site foi feito principalmente para eu estudar um pouco de back-end com php. Mas também para revisar um pouco de front-end com Bootstrap e JavaScript.</p>
-			</article><!-- Fim do sobre -->
+		<!--About-->
+		<article">
+			<h2 class="text-center pt-5">Sobre</h2>
+			<p class="text-center pt-3">Este site foi feito principalmente para eu estudar um pouco de back-end com php. Mas também para revisar um pouco de front-end com Bootstrap e JavaScript.</p>
+		</article><!--End of about-->
 
 
 		<!-- Bootstrap JavaScript -->
