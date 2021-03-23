@@ -24,6 +24,47 @@
 				<form class="d-grid gap-3 col-10 col-sm-8 col-md-8 col-lg-6 offset-1 offset-sm-2 offset-md-2 offset-lg-3 shadow-lg p-2" action="email.php" method="post">
 
 					<div class="form-group">
+						<?php
+							if (isset($_GET['envio'])){
+								if($_GET['envio']=='sucesso'){
+
+								?>
+								
+								<div class="alert alert-success">
+								Mensagem enviada com sucesso!
+								</div>
+								
+								<?php }
+							}
+						?>
+
+						<?php
+							if (isset($_GET['envio'])){
+								if($_GET['envio']=='erro'){
+
+								?>
+								
+								<div class="alert alert-danger">
+								Houve algum erro, tente novamente mais tarde.
+								</div>
+								
+								<?php }
+							}
+						?>
+
+						<?php
+							if (isset($_GET['envio'])){
+								if($_GET['envio']=='msgvazia'){
+
+								?>
+								
+								<div class="alert alert-danger">
+								Escreva uma mensagem antes de enviar.
+								</div>
+								
+								<?php }
+							}
+						?>
 						
 						<div>						
 							<label for="email">Email (caso queira ser respondido):</label>
