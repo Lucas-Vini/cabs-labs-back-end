@@ -27,17 +27,17 @@
 						
 						<div>						
 							<label for="email">Email (caso queira ser respondido):</label>
-							<input type="text" name=""  class="form-control">
+							<input type="text" name="from"  class="form-control">
 						</div>
 
 						<div>
 							<label for="mensagem">Mensagem:</label>
-							<textarea  class="form-control"></textarea>							
+							<textarea  class="form-control" name="msg"></textarea>							
 						</div>
 
 						<br>
 					</div>
-					<input class="btn btn-outline-danger" type="submit" name="" value="Enviar">
+					<input class="btn btn-outline-danger" type="submit" value="Enviar">
 					
 				</form>
 		
